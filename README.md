@@ -33,3 +33,7 @@ Central documentation for the Ainara Helados ordering system.
 ### Changelogs
 - [Frontend Changelog](changelog/frontend.md) — Version history for pedidos-front
 - [Backend Changelog](changelog/backend.md) — Version history for pedidos-backend
+
+### Agent Context (AI)
+- [Backend Context](agent-context/backend.md) — Full AI agent instructions for pedidos-backend
+- [Frontend Context](agent-context/frontend.md) — Full AI agent instructions for pedidos-front
