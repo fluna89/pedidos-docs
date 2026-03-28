@@ -119,3 +119,33 @@ sam list stack-outputs --stack-name pedidos-backend-dev
 # Delete a stack entirely
 sam delete --stack-name pedidos-backend-dev
 ```
+
+## Frontend Deploy
+
+After building the backend infrastructure, deploy the frontend to the S3+CloudFront stack:
+
+```powershell
+# Build (reads VITE_API_URL from .env.production)
+cd pedidos-front
+npm run build
+
+# Upload to S3 (--delete removes stale files)
+aws s3 sync dist s3://pedidos-frontend-dev-561047280243 --delete --profile pedidos-dev
+
+# Invalidate CloudFront cache
+aws cloudfront create-invalidation --distribution-id E1OCCKUDA2YJ14 --paths "/*" --profile pedidos-dev
+```
+
+## Dev Environment — Current Values
+
+| Resource | Value |
+|----------|-------|
+| API URL | `https://l4kdt7tpc3.execute-api.us-east-1.amazonaws.com/dev/api/` |
+| CloudFront URL | `https://d1rjfebhaffmeo.cloudfront.net` |
+| S3 Bucket | `pedidos-frontend-dev-561047280243` |
+| CloudFront ID | `E1OCCKUDA2YJ14` |
+| DynamoDB Table | `PedidosTable-dev` |
+| AWS Account | `561047280243` (pedidos-dev) |
+| AWS Profile | `pedidos-dev` |
+| Region | `us-east-1` |
+```

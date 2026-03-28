@@ -1,8 +1,10 @@
 # AWS Resources
 
-Resources created by the `template.yaml` CloudFormation stack for each environment.
+Two CloudFormation stacks per environment:
+- **pedidos-backend-{env}**: API Gateway + Lambda + DynamoDB (defined in `pedidos-backend/template.yaml`)
+- **pedidos-frontend-{env}**: S3 + CloudFront (defined in `pedidos-front/template.yaml`)
 
-## Resource Inventory
+## Backend Stack
 
 ### API Gateway
 
@@ -80,12 +82,49 @@ All functions share:
 |-----------|------|-------------|
 | `/pedidos/jwt-secret` | SecureString | JWT signing secret (created manually) |
 
-## Outputs
+### Observability
+
+| Resource | Type | Details |
+|----------|------|---------|
+| ApiErrorAlarm | `AWS::CloudWatch::Alarm` | Monitors Lambda errors for auto-rollback |
+| Structured logging | `common.logging` | `@log_handler` decorator on all Lambdas |
+
+- CloudWatch alarm: `AWS/Lambda` → `Errors` ≥ 5 in 1 min
+- Lambda logs: method, path, status code, duration (ms) per request
+- Log groups: `/aws/lambda/pedidos-backend-{env}-{FunctionName}-{hash}`
+
+### Backend Outputs
 
 | Output | Value |
 |--------|-------|
 | ApiUrl | `https://{api-id}.execute-api.us-east-1.amazonaws.com/{env}/api/` |
 | TableName | `PedidosTable-{env}` |
+
+## Frontend Stack
+
+Defined in `pedidos-front/template.yaml`. Separate CloudFormation stack.
+
+| Resource | Type | Details |
+|----------|------|---------|
+| FrontendBucket | `AWS::S3::Bucket` | Static assets for React SPA |
+| FrontendBucketPolicy | `AWS::S3::BucketPolicy` | Allows CloudFront OAC access only |
+| CloudFrontOAC | `AWS::CloudFront::OriginAccessControl` | Secure S3 origin access (sigv4) |
+| CloudFrontDistribution | `AWS::CloudFront::Distribution` | CDN for frontend with HTTPS |
+
+- Bucket name: `pedidos-frontend-{env}-{accountId}`
+- Public access: **blocked** — only CloudFront can read via OAC
+- CloudFront: redirect HTTP→HTTPS, HTTP/2+3, gzip compression
+- Cache policy: `CachingOptimized` (managed policy)
+- SPA routing: 403/404 errors → `/index.html` (client-side routing)
+- Price class: `PriceClass_100` (North America + Europe — cheapest)
+
+### Frontend Outputs
+
+| Output | Value |
+|--------|-------|
+| FrontendBucketName | `pedidos-frontend-{env}-{accountId}` |
+| CloudFrontUrl | `https://{distribution-id}.cloudfront.net` |
+| CloudFrontDistributionId | Distribution ID (for cache invalidation) |
 
 ## Cost Estimates (dev, low traffic)
 
@@ -97,5 +136,40 @@ All functions share:
 | CloudWatch | ~$0 (basic metrics free) |
 | SSM | $0 (standard parameters free) |
 | S3 (deploy artifacts) | ~$0.01/month |
+| S3 (frontend bucket) | ~$0.01/month |
+| CloudFront | ~$0 (1 TB free tier first 12 months, then ~$0.085/GB) |
 
 Total for dev/staging: effectively **$0/month** under AWS Free Tier.
+
+## Frontend Deploy
+
+```powershell
+# Build frontend with production API URL
+cd pedidos-front
+npm run build
+
+# Upload to S3
+aws s3 sync dist s3://pedidos-frontend-{env}-{accountId} --delete --profile pedidos-dev
+
+# Invalidate CloudFront cache
+aws cloudfront create-invalidation --distribution-id {DISTRIBUTION_ID} --paths "/*" --profile pedidos-dev
+```
+
+The frontend reads `VITE_API_URL` from `.env.production` at build time.
+
+## Viewing Logs
+
+```powershell
+# List all Lambda log groups
+aws logs describe-log-groups --log-group-name-prefix "/aws/lambda/pedidos-backend-dev" --profile pedidos-dev --region us-east-1 --query "logGroups[].logGroupName" --output table
+
+# Tail logs for a specific function in real time
+aws logs tail "/aws/lambda/pedidos-backend-dev-AuthFunction-{hash}" --follow --since 1h --profile pedidos-dev --region us-east-1 --format short
+```
+
+Log output format (from `@log_handler` decorator):
+```
+=> POST /dev/api/auth/login
+<= POST /dev/api/auth/login -> 200 (45ms)
+!! GET /dev/api/menu -> ERROR (8ms): something went wrong
+```

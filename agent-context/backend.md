@@ -38,6 +38,7 @@ pedidos-backend/
 │           ├── auth.py        # JWT create/verify, password hash/check, decorators
 │           ├── responses.py   # Standardized HTTP JSON responses
 │           ├── exceptions.py  # Custom exceptions
+│           ├── logging.py     # @log_handler decorator — structured request/response logging
 │           └── geo.py         # Haversine formula, delivery zone logic
 ├── functions/                 # Lambda handlers (one per domain)
 │   ├── auth/app.py
@@ -165,3 +166,16 @@ sam logs -n AuthFunction --tail     # Tail logs for a function
 4. DynamoDB Local runs on port 8100 (not 8000) to avoid conflict with the API
 5. The frontend expects the API at `http://localhost:8000/api` — SAM local runs on port 3000, so a proxy or env var change is needed
 6. All handler functions must be named `lambda_handler` to match the SAM template
+
+## Infrastructure Change Protocol
+
+**Any change to deployed infrastructure MUST follow these steps:**
+
+1. **Make the change** in `template.yaml` or `samconfig.toml`
+2. **Validate**: `sam validate --lint`
+3. **Deploy**: `sam build && sam deploy`
+4. **Document**: update `pedidos-docs/infrastructure/` (aws-resources.md, deploy.md, or environments.md as needed)
+5. **Commit all repos affected** (backend, docs, frontend) with a clear message: `infra: describe what changed`
+6. **Push**: `git push origin master` for every repo that changed
+
+Never leave deployed infrastructure undocumented. If a new resource, output, parameter, or environment value is created, it must be reflected in `pedidos-docs/infrastructure/` before the work is considered done.
