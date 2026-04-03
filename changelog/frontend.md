@@ -2,6 +2,14 @@
 
 Registro de funcionalidades implementadas y planificadas.
 
+## [0.23.2] - 2026-04-03
+
+### Mejorado — Página "Mis datos" y navegación
+
+- **AddressesPage → "Mis datos"**: combina edición de datos personales (nombre, email, teléfono) + CRUD de direcciones en una sola página
+- **AccountSection**: simplificado a resumen read-only + links rápidos a "Mis datos y direcciones" y "Cambiar contraseña"
+- **Header + MobileUserBar**: renombrado "Direcciones" → "Mis datos", ícono `MapPin` → `UserPen`
+
 ## [0.23.0] - 2026-04-03
 
 ### Nuevo — Configuración de tienda (admin)
