@@ -1,5 +1,31 @@
 # Changelog — Pedidos Backend
 
+## [0.4.0] - 2026-04-03
+
+### Configuración de tienda
+
+- **store_config/app.py**: nuevo Lambda handler — GET/PUT `/api/admin/config/store` con autenticación admin
+- Horarios de apertura multi-rango (ej: 10-14 y 18-23), por día de la semana, con timezone `America/Argentina/Buenos_Aires`
+- Apagado de emergencia: flag `emergencyShutdown` + mensaje personalizable
+- Mensaje de comanda: campo libre que se muestra al imprimir/ver comanda del pedido
+- **25 tests**: cobertura completa de horarios, emergencia, comanda, timezone, bloqueo de pedidos fuera de horario
+
+### Teléfono de contacto obligatorio en pedidos
+
+- **orders/app.py**: campo `contactPhone` requerido en creación de pedido, almacenado y devuelto en `_format_order`
+- **admin_orders/app.py**: `contactPhone` en pedidos de mostrador y listado admin
+- **auth/app.py**: teléfono obligatorio en registro (`if not phone: return bad_request`), actualizable en perfil, incluido en `_sanitize_user`
+
+### Recuperación de contraseña
+
+- **auth/app.py**: `handle_recover` genera token temporal y `handle_reset` valida token + actualiza contraseña (bcrypt)
+
+### Infraestructura
+
+- `JWT_EXPIRATION_HOURS` configurable via env var (default 24h) en `auth.py`
+- `StoreConfigFunction` agregada a `template.yaml`
+- `scripts/tail-logs.ps1`: script para tail de logs de CloudWatch
+
 ## [0.3.1] - 2026-03-26
 
 ### Comentarios de pasos en combos

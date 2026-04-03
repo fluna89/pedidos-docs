@@ -126,6 +126,17 @@ Defined in `pedidos-front/template.yaml`. Separate CloudFormation stack.
 | CloudFrontUrl | `https://{distribution-id}.cloudfront.net` |
 | CloudFrontDistributionId | Distribution ID (for cache invalidation) |
 
+## IAM Users
+
+| User | Access | Policy | Purpose |
+|------|--------|--------|---------|
+| `deploy-user` | CLI (access keys) | AdministratorAccess | SAM/CloudFormation deploys |
+| `pedidos-dev-admin` | Console (password) | AdministratorAccess | AWS web console management |
+
+> **TODO (security):** Apply least privilege to `deploy-user`. Replace `AdministratorAccess` with a scoped policy allowing only: CloudFormation, Lambda, API Gateway, DynamoDB, S3, CloudFront, IAM (pass-role), CloudWatch, SSM, and SAM-related actions. Track in roadmap.
+
+Console login URL: `https://561047280243.signin.aws.amazon.com/console`
+
 ## Cost Estimates (dev, low traffic)
 
 | Service | Cost (approx.) |

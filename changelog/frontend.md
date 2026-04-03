@@ -1,6 +1,39 @@
 # Changelog - Pedidos Project
 
 Registro de funcionalidades implementadas y planificadas.
+
+## [0.23.0] - 2026-04-03
+
+### Nuevo — Configuración de tienda (admin)
+
+- **AdminConfigPage**: toggle de apagado de emergencia + editor de mensaje de comanda
+- **AdminHorariosPage**: configuración de horarios multi-rango por día con vista visual
+- **StoreStatusContext + useStoreStatus**: polling periódico del estado de la tienda (abierta/cerrada/emergencia)
+- **StoreClosedBanner**: banner visible cuando la tienda está cerrada o en emergencia
+- **CartContext**: bloquea checkout cuando la tienda está cerrada
+- **AdminLayout**: links a páginas de configuración y horarios en sidebar
+
+### Nuevo — Teléfono de contacto en pedidos
+
+- **RegisterPage**: campo de teléfono obligatorio en registro
+- **CheckoutPage**: toggle "Mi teléfono" / "Usar otro teléfono" para usuarios registrados, input simple para invitados
+- **AccountSection**: edición de teléfono en "Mi cuenta" con `updateUser` del contexto
+- **AdminPedidosPage**: teléfono del cliente como link `tel:` en detalle de pedido
+- **AdminCargarPedidoPage**: campo de teléfono en pedidos de mostrador
+- **AuthContext**: `register()` acepta `phone`, expone `updateUser()` para actualizar datos en memoria
+
+### Nuevo — Recuperación de contraseña
+
+- **ResetPasswordPage**: nueva página para resetear contraseña con token
+- **LoginPage**: enlace a flujo de recuperación de contraseña
+
+### Otros
+
+- **.env**: `localhost:3000` para SAM local (era IP de LAN obsoleta)
+- **.env.production**: URL de API Gateway de AWS para builds de producción
+- **vite.config.js**: `host: true` para acceso por red
+- **handlers.js + api.js**: endpoints de store config
+
 ## [0.22.1] - 2026-03-26
 
 ### Mejorado — Visualización de combos en detalle de pedido
