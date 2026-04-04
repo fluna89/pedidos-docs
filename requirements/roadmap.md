@@ -343,17 +343,17 @@ Secciones confirmadas del sidebar:
 
 > Objetivo: que el dueño pueda gestionar los pedidos del día y el catálogo.
 
-- [ ] Layout admin (sidebar + contenido) con autenticación de rol admin
-- [ ] **Pedidos**: vista listado con tabla, acciones básicas (avanzar estado, cancelar)
-- [ ] **Pedidos**: vista Kanban (3 columnas)
-- [ ] **Pedidos**: alerta sonora y visual de nuevo pedido
-- [ ] **Productos**: CRUD de productos con los 3 arquetipos
+- [x] Layout admin (sidebar + contenido) con autenticación de rol admin
+- [x] **Pedidos**: vista listado con tabla, acciones básicas (avanzar estado, cancelar)
+- [x] **Pedidos**: vista Kanban (3 columnas)
+- [x] **Pedidos**: alerta sonora y visual de nuevo pedido
+- [x] **Productos**: CRUD de productos con los 3 arquetipos
 - [ ] **Productos**: carga de imágenes de producto (S3 + CloudFront)
-- [ ] **Productos**: flag "Solo venta en mostrador"
-- [ ] **Sabores**: lista maestra global con toggle ON/OFF
-- [ ] **Configuración**: horarios de apertura con bloqueo de pedidos fuera de horario
-- [ ] **Configuración**: botón de cierre de emergencia
-- [ ] **Configuración**: mensaje de ausencia
+- [x] **Productos**: flag "Solo venta en mostrador"
+- [x] **Sabores**: lista maestra global con toggle ON/OFF
+- [x] **Configuración**: horarios de apertura con bloqueo de pedidos fuera de horario
+- [x] **Configuración**: botón de cierre de emergencia
+- [x] **Configuración**: mensaje de ausencia
 
 ### Fase 2 — Operación completa
 
@@ -361,17 +361,17 @@ Secciones confirmadas del sidebar:
 
 - [ ] **Pedidos**: venta en mostrador (flujo corto, sin dirección/teléfono, vinculación opcional de cliente)
 - [ ] **Pedidos**: carga manual (WhatsApp, delivery)
-- [ ] **Pedidos**: imprimir comanda con mensaje personalizable
+- [x] **Pedidos**: imprimir comanda con mensaje personalizable
 - [ ] **Pedidos**: edición de pedido, pedido sin costo, forzar fuera de zona
 - [ ] **Pedidos**: estados de delivery paralelos
-- [ ] **Checkout**: teléfono de contacto obligatorio (confirmación o ingreso manual en cada pedido)
+- [x] **Checkout**: teléfono de contacto obligatorio (confirmación o ingreso manual en cada pedido)
 - [ ] **Direcciones**: integración Google Maps Places API (autocompletado + desambiguación)
 - [ ] **Direcciones**: geocodificación obligatoria (lat/lng almacenado con cada dirección)
 - [ ] **Zonas**: dibujo de polígono de cobertura en mapa (admin)
 - [ ] **Zonas**: configuración por radio, demora estimada, apagar zona
 - [ ] **Delivery**: lista de repartidores, asignación
 - [ ] **Configuración**: pagos (efectivo on/off, compra mínima, precios diferenciados)
-- [ ] **Configuración**: mensaje de comanda personalizable
+- [x] **Configuración**: mensaje de comanda personalizable
 
 ### Fase 3 — Clientes y fidelización
 
