@@ -360,17 +360,14 @@ Secciones confirmadas del sidebar:
 > Objetivo: cubrir el día a día operativo completo.
 
 - [ ] **Pedidos**: venta en mostrador (flujo corto, sin dirección/teléfono, vinculación opcional de cliente)
-- [ ] **Pedidos**: carga manual (WhatsApp, delivery)
+- [x] **Pedidos**: carga manual (WhatsApp, delivery)
 - [x] **Pedidos**: imprimir comanda con mensaje personalizable
-- [ ] **Pedidos**: edición de pedido, pedido sin costo, forzar fuera de zona
-- [ ] **Pedidos**: estados de delivery paralelos
+- [x] **Pedidos**: estados de delivery paralelos
 - [x] **Checkout**: teléfono de contacto obligatorio (confirmación o ingreso manual en cada pedido)
 - [ ] **Direcciones**: integración Google Maps Places API (autocompletado + desambiguación)
 - [ ] **Direcciones**: geocodificación obligatoria (lat/lng almacenado con cada dirección)
 - [ ] **Zonas**: dibujo de polígono de cobertura en mapa (admin)
 - [ ] **Zonas**: configuración por radio, demora estimada, apagar zona
-- [ ] **Delivery**: lista de repartidores, asignación
-- [ ] **Configuración**: pagos (efectivo on/off, compra mínima, precios diferenciados)
 - [x] **Configuración**: mensaje de comanda personalizable
 
 ### Fase 3 — Clientes y fidelización
@@ -383,22 +380,6 @@ Secciones confirmadas del sidebar:
 - [ ] **Puntos**: configuración de acumulación y canje
 - [ ] **Puntos Usados**: historial de canjes
 - [ ] **Promos**: CRUD de promos, vinculación a productos o al carrito
-
-### Fase 4 — Facturación y analítica
-
-> Objetivo: dar visibilidad financiera y de negocio.
-
-- [ ] **Facturación**: acumulados por fecha/medio de pago, caja chica, exportación
-- [ ] **Informe**: origen de clientes (UTM), encuesta post-pedido
-- [ ] **Rentabilidad**: costos estimados, análisis TC y comisiones (fase futura)
-
-### Fase 5 — Integraciones
-
-> Objetivo: conectar con el ecosistema externo.
-
-- [ ] Integración Rapiboy (GPS tracking de delivery)
-- [ ] Gift cards / vouchers
-- [ ] Cash flow y estado de resultados
 
 ---
 
