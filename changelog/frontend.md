@@ -2,6 +2,15 @@
 
 Registro de funcionalidades implementadas y planificadas.
 
+## [0.24.1] - 2026-04-03
+
+### Corregido — Sesión expirada y UX de impresión
+
+- **AuthContext**: chequeo proactivo de expiración JWT al cargar sesión desde localStorage — evita navegar con tokens vencidos
+- **api.js**: verificación de expiración JWT antes de cada request — si el token expiró, dispara logout sin esperar 401 del backend
+- **AdminPedidosPage**: botón de imprimir comanda movido del detalle del pedido a los iconos de acción en la tabla (lista) y tarjetas (kanban)
+- **env.json** (local): agregada `StoreConfigFunction` — faltaba y causaba 401 en endpoints de configuración
+
 ## [0.24.0] - 2026-04-03
 
 ### Nuevo — Imprimir comanda (#8)
