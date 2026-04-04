@@ -2,6 +2,15 @@
 
 Registro de funcionalidades implementadas y planificadas.
 
+## [0.24.0] - 2026-04-03
+
+### Nuevo — Imprimir comanda (#8)
+
+- **OrderDetailDialog**: botón "Imprimir" en el detalle de cada pedido, genera comanda formato recibo (80mm)
+- **ComandaPrint**: componente de impresión con número de pedido, datos del cliente, productos con sabores/extras/combos, totales, método de pago y mensaje de comanda personalizable
+- **CSS print styles**: `@media print` oculta toda la UI excepto la comanda, formato optimizado para impresoras térmicas
+- **Integración store config**: obtiene `comandaMessage` del endpoint de configuración de tienda
+
 ## [0.23.2] - 2026-04-03
 
 ### Mejorado — Página "Mis datos" y navegación
