@@ -2,6 +2,14 @@
 
 Registro de funcionalidades implementadas y planificadas.
 
+## [0.24.5] - 2026-04-04
+
+### Corregido — Logout no limpiaba carrito ni redirigía
+
+- **AuthContext**: `logout()` dispara evento `auth:logout` para que otros contextos reaccionen
+- **CartContext**: escucha `auth:logout` (además de `auth:expired`) para limpiar el carrito al cerrar sesión
+- **Header**: logout ahora navega a `/login` (como ya hacía AdminLayout)
+
 ## [0.24.4] - 2026-04-04
 
 ### Corregido — Redirect loop en sesión expirada
