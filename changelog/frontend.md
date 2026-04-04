@@ -2,6 +2,13 @@
 
 Registro de funcionalidades implementadas y planificadas.
 
+## [0.24.2] - 2026-04-03
+
+### Corregido — Login loop en admin
+
+- **api.js**: revertido chequeo de JWT en `getToken()` — el chequeo agresivo disparaba `auth:expired` incorrectamente por fallas de decodificación base64url, causando logout inmediato tras login
+- **AuthContext**: decodificación JWT ahora maneja base64url (`-`→`+`, `_`→`/`) y fallas de parsing sin borrar la sesión válida
+
 ## [0.24.1] - 2026-04-03
 
 ### Corregido — Sesión expirada y UX de impresión
