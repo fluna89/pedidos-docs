@@ -2,6 +2,19 @@
 
 Registro de funcionalidades implementadas y planificadas.
 
+## [0.24.4] - 2026-04-04
+
+### Corregido — Redirect loop en sesión expirada
+
+- **App.jsx**: `SessionExpiredRedirect` envolvió `navigate()` en `useEffect` — llamar navigate durante el render causaba loop infinito de re-renders en React
+
+## [0.24.3] - 2026-04-03
+
+### Corregido — Falsos positivos de sesión expirada
+
+- **api.js**: `auth:expired` solo se dispara cuando el 401 contiene mensajes de token ("expirado" o "inválido") — antes cualquier 401 (ej. store/status sin auth) disparaba logout
+- **AdminPedidosPage**: comanda se obtiene on-demand al hacer click en imprimir (en vez de precargar al montar)
+
 ## [0.24.2] - 2026-04-03
 
 ### Corregido — Login loop en admin
