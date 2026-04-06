@@ -2,6 +2,14 @@
 
 Registro de funcionalidades implementadas y planificadas.
 
+## [0.25.1] - 2026-04-06
+
+### Venta en mostrador
+
+- **AdminCargarPedidoPage.jsx**: selector de tipo de pedido con 3 opciones (Mostrador, Retiro en local, Delivery); default cambiado a "mostrador"; catálogo filtra productos `counterOnly` cuando el tipo no es mostrador
+- **AdminPedidosPage.jsx**: badge "Mostrador" (amber) en kanban, lista y detalle; comanda muestra "VENTA EN MOSTRADOR"
+- **handlers.js**: agregado `pendiente_pago` a `orderStatusLabels`
+
 ## [0.25.0] - 2026-04-06
 
 ### Imágenes de productos

@@ -1,5 +1,14 @@
 # Changelog — Pedidos Backend
 
+## [0.5.1] - 2026-04-06
+
+### Venta en mostrador — orderType "mostrador"
+
+- **admin_orders/app.py**: nuevo `COUNTER_FLOW = ["pendiente", "en_preparacion", "entregado"]` — flujo corto para pedidos de mostrador
+- **admin_orders/app.py**: helper `_get_flow()` selecciona flujo según `orderType` (mostrador/pickup/delivery)
+- **admin_orders/app.py**: `handle_create_counter()` default `orderType` cambiado de `"pickup"` a `"mostrador"`
+- **test_admin_orders.py**: 5 tests nuevos — counter flow advance/revert, default mostrador type, explicit delivery type, linked user reference
+
 ## [0.5.0] - 2026-04-06
 
 ### Imágenes de productos (S3 + CloudFront)
