@@ -1,5 +1,17 @@
 # Changelog — Pedidos Backend
 
+## [0.5.0] - 2026-04-06
+
+### Imágenes de productos (S3 + CloudFront)
+
+- **admin_products/app.py**: endpoint `GET /api/admin/products/upload-url` genera presigned URL para subir imágenes a S3
+- **admin_products/app.py**: al crear/actualizar producto, campo `image` almacena la key S3 (`products/{productId}.{ext}`)
+- **admin_products/app.py**: `_get_s3_client()` lee credenciales desde `local_config.json` cuando `AWS_SAM_LOCAL=true` (bypass de env vars no propagadas por SAM)
+- **template.yaml**: bucket S3 `PedidosImagesBucket` con política pública de lectura, distribución CloudFront `ImagesCDN` con OAC
+- **template.yaml**: outputs `ImagesBucketName` y `CloudFrontDomain` exportados
+- **.gitignore**: `local_config.json` excluido (contiene credenciales locales)
+- **27 tests** actualizados para mock de `_get_s3_client` y `_get_local_config`
+
 ## [0.4.0] - 2026-04-03
 
 ### Configuración de tienda

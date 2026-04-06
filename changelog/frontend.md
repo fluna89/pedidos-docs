@@ -2,6 +2,17 @@
 
 Registro de funcionalidades implementadas y planificadas.
 
+## [0.25.0] - 2026-04-06
+
+### Imágenes de productos
+
+- **ProductCardShell.jsx**: nuevo componente compartido — shell visual de tarjeta horizontal (imagen cuadrada 80x80 + contenido) usado por catálogo y admin preview
+- **ProductCard.jsx**: refactorizado para usar `ProductCardShell` — layout horizontal con imagen a la izquierda
+- **ProductDetailView.jsx**: imagen cuadrada centrada (192x192) con `rounded-lg`; `DetailImage` ahora reconoce URLs (`/`, `blob:`, `http`) además de keys S3
+- **AdminProductosPage.jsx**: vista previa usa `ProductCardShell` en desktop y mobile (elimina duplicación y drift); preview de detalle pasa `imagePreview` al producto virtual; sección de imagen rediseñada; eliminadas secciones de extras/formatos de la preview
+- **handlers.js**: `adminGetUploadUrl()` y `uploadImageToS3()` para subir imágenes via presigned URL
+- **vite.config.js**: proxy `/products` → CloudFront para servir imágenes localmente
+
 ## [0.24.5] - 2026-04-04
 
 ### Corregido — Logout no limpiaba carrito ni redirigía
