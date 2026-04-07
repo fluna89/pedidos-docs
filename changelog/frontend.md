@@ -12,9 +12,9 @@ Registro de funcionalidades implementadas y planificadas.
 - **ComboWizard.jsx**: props `initialSteps` y `editMode` — pre-popula `stepChoices` desde el item del carrito, arranca en fase `summary`
 - **CartPage.jsx**: botón de edición (lápiz) para items con flavors, extras o comboSteps — navega al detalle en modo edición
 
-### Comentario por item movido a página de detalle
+### Comentario por item — solo productos simples
 
-- **ProductCard.jsx**: eliminado comentario (botón MessageSquare, textarea, estado) de todas las tarjetas — las cards quedan solo con QtyControls
+- **ProductCard.jsx**: botón de comentario (MessageSquare + textarea) disponible solo para productos simples; productos no-simples y combos usan el textarea de la página de detalle
 - **CartPage.jsx**: comentarios de items se muestran como texto italic read-only; edición via lápiz que lleva al detalle
 - **AdminProductosPage.jsx**: mockActions del preview actualizados a controles −/1/+ (matching tarjetas reales)
 
