@@ -2,6 +2,22 @@
 
 Registro de funcionalidades implementadas y planificadas.
 
+## [0.25.3] - 2026-04-07
+
+### Edición de items en carrito
+
+- **CartContext.jsx**: nuevo método `replaceItem()` — actualiza un item existente del carrito in-place manteniendo cartId y cantidad
+- **ProductDetailPage.jsx**: modo edición via `location.state` — recibe `editCartId`/`editItem`, usa `replaceItem` en vez de `addItem`, navega a `/cart` al guardar
+- **ProductDetailView.jsx**: prop `editMode` — botón muestra "Guardar — $X" / "¡Guardado!" en vez de "Agregar — $X" / "¡Agregado!"
+- **ComboWizard.jsx**: props `initialSteps` y `editMode` — pre-popula `stepChoices` desde el item del carrito, arranca en fase `summary`
+- **CartPage.jsx**: botón de edición (lápiz) para items con flavors, extras o comboSteps — navega al detalle en modo edición
+
+### Comentario por item movido a página de detalle
+
+- **ProductCard.jsx**: eliminado comentario (botón MessageSquare, textarea, estado) de todas las tarjetas — las cards quedan solo con QtyControls
+- **CartPage.jsx**: comentarios de items se muestran como texto italic read-only; edición via lápiz que lleva al detalle
+- **AdminProductosPage.jsx**: mockActions del preview actualizados a controles −/1/+ (matching tarjetas reales)
+
 ## [0.25.2] - 2026-04-06
 
 ### Rediseño de tarjetas de producto
