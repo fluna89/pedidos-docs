@@ -1,5 +1,12 @@
 # Changelog — Pedidos Backend
 
+## [0.5.2] - 2026-04-06
+
+### Enriquecimiento de precios unitarios en catálogo
+
+- **catalog/app.py**: nueva función `_enrich_min_item_prices()` — para productos con `unitPricing`, consulta la flavor source y calcula el precio mínimo entre sabores activos
+- **catalog/app.py**: campo `minItemPrice` agregado a la respuesta de `/api/menu` y `/api/counter-menu` para productos con precio por unidad (ej: empanadas)
+
 ## [0.5.1] - 2026-04-06
 
 ### Venta en mostrador — orderType "mostrador"

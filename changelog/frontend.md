@@ -2,6 +2,17 @@
 
 Registro de funcionalidades implementadas y planificadas.
 
+## [0.25.2] - 2026-04-06
+
+### Rediseño de tarjetas de producto
+
+- **ProductCard.jsx**: botones unificados — todos los tipos usan botón full-width con ícono ShoppingCart y precio; combos muestran "Armar — $X" o "Armar — X% dto."; unitPricing muestra "Agregar — desde $X c/u"
+- **ProductCard.jsx**: controles +/- (`QtyControls`) en esquina superior derecha de todas las tarjetas; para productos no-simples, + navega al detalle y − elimina el último agregado
+- **ProductCard.jsx**: botón de comentario (aclaración) en todas las tarjetas excepto combos; textarea compartido arriba del botón principal
+- **ProductCard.jsx**: botón de eliminar (trash) visible para productos no-simples cuando están en el carrito
+- **ProductCardShell.jsx**: nuevo prop `actions` para renderizar controles en la esquina superior derecha junto al nombre
+- **AdminProductosPage.jsx**: extraído componente `ProductPreviewCard` — reemplaza ~120 líneas de preview duplicada (desktop + mobile); labels de botón alineados con tarjeta de cliente
+
 ## [0.25.1] - 2026-04-06
 
 ### Venta en mostrador
