@@ -78,7 +78,7 @@ src/
 - **Branch**: `master`, direct push to `origin/master`
 - **Changelog**: in `CHANGELOG.md`, ordered newest to oldest. Roadmap at the bottom. **Every version bump MUST include its changelog entry before committing**
 - **Versions**: semver — major features are minor bumps (v0.X.0), fixes/improvements are patch (v0.X.Y)
-- **Workflow**: after each feature, improvement or fix → update CHANGELOG → `git add -A` → `git commit` → `git push origin master`. Every change gets committed and pushed immediately with a new version
+- **Workflow**: after each feature, improvement or fix → update CHANGELOG → update roadmap (mark completed items) → `git add -A` → `git commit` → `git push origin master`. Every change gets committed and pushed immediately with a new version
 
 ### Conversation
 - The user speaks **Spanish**

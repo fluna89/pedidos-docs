@@ -95,7 +95,7 @@ pedidos-backend/
 - **Branch**: `master`, direct push to `origin/master`
 - **Changelog**: in `CHANGELOG.md`, ordered newest to oldest
 - **Versions**: semver — major features = minor bump (v0.X.0), fixes = patch (v0.X.Y)
-- **Workflow**: change → update CHANGELOG → `git add -A` → `git commit` → `git push origin master`
+- **Workflow**: change → update CHANGELOG → update roadmap (mark completed items) → `git add -A` → `git commit` → `git push origin master`
 
 ### Conversation
 - The user speaks **Spanish**

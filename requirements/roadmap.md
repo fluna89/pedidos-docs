@@ -348,7 +348,7 @@ Secciones confirmadas del sidebar:
 - [x] **Pedidos**: vista Kanban (3 columnas)
 - [x] **Pedidos**: alerta sonora y visual de nuevo pedido
 - [x] **Productos**: CRUD de productos con los 3 arquetipos
-- [ ] **Productos**: carga de imágenes de producto (S3 + CloudFront)
+- [x] **Productos**: carga de imágenes de producto (S3 + CloudFront)
 - [x] **Productos**: flag "Solo venta en mostrador"
 - [x] **Sabores**: lista maestra global con toggle ON/OFF
 - [x] **Configuración**: horarios de apertura con bloqueo de pedidos fuera de horario
@@ -359,7 +359,7 @@ Secciones confirmadas del sidebar:
 
 > Objetivo: cubrir el día a día operativo completo.
 
-- [ ] **Pedidos**: venta en mostrador (flujo corto, sin dirección/teléfono, vinculación opcional de cliente)
+- [x] **Pedidos**: venta en mostrador (flujo corto, sin dirección/teléfono, vinculación opcional de cliente)
 - [x] **Pedidos**: carga manual (WhatsApp, delivery)
 - [x] **Pedidos**: imprimir comanda con mensaje personalizable
 - [x] **Pedidos**: estados de delivery paralelos
