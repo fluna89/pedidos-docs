@@ -155,7 +155,7 @@ Macro categorías → Categorías → Productos → Sabores/Opciones → Adicion
 - **Login con Google** (OAuth 2.0 / Google Identity Services). Prioridad alta.
 - Login social con Facebook (fase futura).
 - Formulario clásico (email + contraseña).
-- Recuperación de contraseña.
+- Recuperación de contraseña. **Requiere dominio propio** registrado en Amazon SES para enviar emails (verificación de identidad, enlace de reseteo). Sin dominio no se pueden enviar correos en producción.
 - **Expiración de sesión**: las sesiones del cliente expiran después de un tiempo configurable (ej: 7 días de inactividad). El JWT tiene tiempo de vida limitado. Al expirar se redirige al login.
 
 ### Perfil del cliente
@@ -375,6 +375,7 @@ Secciones confirmadas del sidebar:
 > Objetivo: gestionar la relación con los clientes.
 
 - [ ] **Auth**: login con Google (OAuth 2.0 / Google Identity Services)
+- [ ] **Auth**: recuperar/cambiar contraseña (requiere dominio + Amazon SES)
 - [ ] **Auth**: expiración de sesión configurable (JWT con TTL + refresh)
 - [ ] **Clientes**: listado, clasificación VIP, notas privadas
 - [ ] **Puntos**: configuración de acumulación y canje
