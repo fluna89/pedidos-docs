@@ -1,5 +1,12 @@
 # Changelog — Pedidos Backend
 
+## [0.5.3] - 2026-04-07
+
+### Pago en efectivo — monto con el que paga
+
+- **orders/app.py**: campo opcional `cashPaysWith` almacenado en la orden cuando el cliente indica con cuánto paga en efectivo
+- **orders/app.py**: `_format_order()` incluye `cashPaysWith` en la respuesta
+
 ## [0.5.2] - 2026-04-06
 
 ### Enriquecimiento de precios unitarios en catálogo

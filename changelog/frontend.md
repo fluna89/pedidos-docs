@@ -2,6 +2,14 @@
 
 Registro de funcionalidades implementadas y planificadas.
 
+## [0.25.4] - 2026-04-07
+
+### Mejoras en checkout y datos personales
+
+- **AddressesPage.jsx**: indicador "✓ Guardado" verde junto al label de cada campo que ya tiene datos cargados en la sección Datos personales
+- **PaymentMethodSelector.jsx**: pago en efectivo reemplaza mensaje de "monto exacto" por input "¿Con cuánto pagás?" para que el cliente indique el monto y se lleve el cambio
+- **CheckoutPage.jsx**: nuevo estado `cashPaysWith` enviado como campo opcional en `createOrder` cuando el medio de pago es efectivo
+
 ## [0.25.3] - 2026-04-07
 
 ### Edición de items en carrito
