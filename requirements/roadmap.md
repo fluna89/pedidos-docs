@@ -364,8 +364,8 @@ Secciones confirmadas del sidebar:
 - [x] **Pedidos**: imprimir comanda con mensaje personalizable
 - [x] **Pedidos**: estados de delivery paralelos
 - [x] **Checkout**: teléfono de contacto obligatorio (confirmación o ingreso manual en cada pedido)
-- [ ] **Direcciones**: integración Google Maps Places API (autocompletado + desambiguación)
-- [ ] **Direcciones**: geocodificación obligatoria (lat/lng almacenado con cada dirección)
+- [x] **Direcciones**: integración Google Maps Places API (autocompletado + desambiguación)
+- [x] **Direcciones**: geocodificación obligatoria (lat/lng almacenado con cada dirección)
 - [ ] **Zonas**: dibujo de polígono de cobertura en mapa (admin)
 - [ ] **Zonas**: configuración por radio, demora estimada, apagar zona
 - [x] **Configuración**: mensaje de comanda personalizable

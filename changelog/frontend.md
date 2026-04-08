@@ -2,6 +2,18 @@
 
 Registro de funcionalidades implementadas y planificadas.
 
+## [0.25.5] - 2026-04-08
+
+### Direcciones con Google Maps
+
+- **AddressForm.jsx**: búsqueda de direcciones con Google Maps Places API (AutocompleteSuggestion) — input nativo shadcn con dropdown de sugerencias, ícono MapPin, mainText/secondaryText
+- **AddressForm.jsx**: geocodificación obligatoria — al seleccionar una sugerencia se obtienen lat/lng y se almacenan con la dirección
+- **AddressForm.jsx**: mapa interactivo (GoogleMap + MarkerF) que se centra automáticamente al seleccionar dirección
+- **AddressForm.jsx**: location bias centrado en CABA (50km) + `language: 'es'` para resultados relevantes en español
+- **index.css**: limpieza de estilos legacy del web component PlaceAutocompleteElement
+- **.env / .env.production**: configuración de `VITE_GOOGLE_MAPS_API_KEY`
+- **package.json**: nueva dependencia `@react-google-maps/api`
+
 ## [0.25.4] - 2026-04-07
 
 ### Mejoras en checkout y datos personales
