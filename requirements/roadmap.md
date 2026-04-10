@@ -195,9 +195,9 @@ Macro categorías → Categorías → Productos → Sabores/Opciones → Adicion
 
 ### Configuración de zonas
 
-- Zonas por **radio en km** desde un punto central.
-- Zonas por **perímetros personalizados** (polígonos en mapa), útil para zonas conflictivas.
+- Zonas por **perímetros personalizados** (polígonos en mapa). Se definen dibujando puntos sobre Google Maps.
 - Posibilidad de **apagar una zona temporalmente**.
+- Cada zona tiene costo de envío y demora estimada independientes.
 
 ### Demora estimada
 
@@ -217,9 +217,9 @@ Macro categorías → Categorías → Productos → Sabores/Opciones → Adicion
 
 - El admin puede **dibujar un polígono en Google Maps** para definir el área exacta de cobertura.
 - Soporte para múltiples zonas (con distinto costo de envío o demora).
-- Alternativa simplificada: radio en km desde un punto central.
 - Las zonas se pueden encender/apagar individualmente.
 - El cliente ve en tiempo real si su dirección está dentro de la cobertura.
+- **Pendiente**: crear un Map ID propio en Google Cloud Console (actualmente usa `DEMO_MAP_ID` de prueba). Ir a Google Maps Platform → Map Management → Create Map ID.
 
 ---
 
@@ -366,8 +366,9 @@ Secciones confirmadas del sidebar:
 - [x] **Checkout**: teléfono de contacto obligatorio (confirmación o ingreso manual en cada pedido)
 - [x] **Direcciones**: integración Google Maps Places API (autocompletado + desambiguación)
 - [x] **Direcciones**: geocodificación obligatoria (lat/lng almacenado con cada dirección)
-- [ ] **Zonas**: dibujo de polígono de cobertura en mapa (admin)
-- [ ] **Zonas**: configuración por radio, demora estimada, apagar zona
+- [x] **Zonas**: dibujo de polígono de cobertura en mapa (admin)
+- [x] **Zonas**: configuración de demora estimada, costo de envío, apagar zona
+- [ ] **Zonas**: crear Map ID propio en Google Cloud Console (reemplazar `DEMO_MAP_ID`)
 - [x] **Configuración**: mensaje de comanda personalizable
 
 ### Fase 3 — Clientes y fidelización

@@ -1,5 +1,18 @@
 # Changelog — Pedidos Backend
 
+## [0.6.0] - 2026-04-10
+
+### Zonas de delivery por polígonos
+
+- **geo.py**: refactor completo — eliminado `check_coverage` y zonas por radio (`maxKm`), nuevo `point_in_polygon` (ray-casting algorithm), `calc_delivery_zone` ahora evalúa polígonos dibujados en mapa
+- **delivery/app.py**: nuevos endpoints admin `GET/PUT /api/admin/delivery/config` — CRUD de zonas con polígonos, costo, demora estimada, toggle on/off, persistencia de `colorIndex` para estabilidad visual en el frontend
+- **delivery/app.py**: `handle_calc` migrado de zonas por radio a polígonos, filtra solo zonas activas (`enabled`)
+- **addresses/app.py**: `_check_coverage` migrado de haversine + `maxDeliveryKm` a polígonos vía `calc_delivery_zone`, cobertura evaluada inline en `handle_list`
+- **template.yaml**: DeliveryFunction policy `DynamoDBReadPolicy → DynamoDBCrudPolicy`, 2 nuevas rutas HTTP API (`GET/PUT /api/admin/delivery/config`)
+- **test_geo.py**: tests actualizados a polígonos (point_in_polygon, calc_delivery_zone sin max_km)
+- **test_delivery.py**: tests para admin get/update config, cálculo con polígonos
+- **test_addresses.py**: tests actualizados para cobertura por polígonos
+
 ## [0.5.3] - 2026-04-07
 
 ### Pago en efectivo — monto con el que paga

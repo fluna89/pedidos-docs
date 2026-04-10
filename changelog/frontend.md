@@ -2,6 +2,21 @@
 
 Registro de funcionalidades implementadas y planificadas.
 
+## [0.26.0] - 2026-04-10
+
+### Admin — Zonas de delivery
+
+- **AdminZonasPage.jsx** (nuevo): página completa de configuración de zonas de delivery con mapa interactivo Google Maps
+- **AdminZonasPage.jsx**: dibujo de polígonos click-to-draw con snap-to-close (umbral 2% del viewport), preview con PolylineF, primer punto visualmente diferenciado (más grande, blanco con borde)
+- **AdminZonasPage.jsx**: marcador de tienda con AdvancedMarkerElement (migración de MarkerF deprecado)
+- **AdminZonasPage.jsx**: colores estables por zona (`colorIndex` persistido en backend), paleta de 8 colores
+- **AdminZonasPage.jsx**: autocompletado de dirección de tienda con Google Places API (AutocompleteSuggestion)
+- **AdminZonasPage.jsx**: cada zona configurable con nombre, costo de envío, demora estimada, toggle on/off
+- **AdminZonasPage.jsx**: fix race condition en carga inicial (stale flag en useEffect para StrictMode)
+- **App.jsx**: nueva ruta `/admin/zonas` → AdminZonasPage
+- **AdminLayout.jsx**: fix layout flex para que el mapa ocupe el espacio disponible (`flex-1 flex-col overflow-y-auto`)
+- **handlers.js**: nuevos handlers `adminGetDeliveryConfig` / `adminUpdateDeliveryConfig`
+
 ## [0.25.5] - 2026-04-08
 
 ### Direcciones con Google Maps
