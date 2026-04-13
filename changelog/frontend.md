@@ -2,6 +2,16 @@
 
 Registro de funcionalidades implementadas y planificadas.
 
+## [0.27.0] - 2026-04-12
+
+### Google OAuth login
+
+- **App.jsx**: `GoogleOAuthProvider` wrapper with `VITE_GOOGLE_CLIENT_ID`
+- **LoginPage.jsx**: replaced custom Google button with `GoogleLogin` component from `@react-oauth/google` (ID token flow, Spanish locale)
+- **AuthContext.jsx**: `loginWithGoogle(googleIdToken)` sends real Google credential to backend
+- **.env / .env.dev**: added `VITE_GOOGLE_CLIENT_ID`
+- **package.json**: dependency `@react-oauth/google`
+
 ## [0.26.0] - 2026-04-10
 
 ### Admin — Zonas de delivery

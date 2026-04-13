@@ -1,5 +1,15 @@
 # Changelog — Pedidos Backend
 
+## [0.7.0] - 2026-04-12
+
+### Google OAuth login
+
+- **auth/app.py**: `handle_google` — real Google ID token verification via `google.oauth2.id_token.verify_oauth2_token`, replaces mock placeholder
+- **auth/app.py**: existing user login + `googleLinked` flag, new user creation without password
+- **layers/common/requirements.txt**: added `google-auth>=2.29.0`
+- **template.yaml**: `GOOGLE_CLIENT_ID` environment variable via SSM parameter (`/pedidos/google-client-id`)
+- **test_auth.py**: 4 new tests — new user, existing user, missing token, invalid token
+
 ## [0.6.0] - 2026-04-10
 
 ### Zonas de delivery por polígonos

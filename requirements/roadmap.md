@@ -375,7 +375,7 @@ Secciones confirmadas del sidebar:
 
 > Objetivo: gestionar la relación con los clientes.
 
-- [ ] **Auth**: login con Google (OAuth 2.0 / Google Identity Services)
+- [x] **Auth**: login con Google (OAuth 2.0 / Google Identity Services)
 - [ ] **Auth**: recuperar/cambiar contraseña (requiere dominio + Amazon SES)
 - [ ] **Auth**: expiración de sesión configurable (JWT con TTL + refresh)
 - [ ] **Clientes**: listado, clasificación VIP, notas privadas

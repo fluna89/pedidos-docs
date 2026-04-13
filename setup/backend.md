@@ -37,6 +37,32 @@ The API will be available at `http://localhost:8000/api/`.
 
 > **Note**: `env.json` contains local environment variables (DynamoDB endpoint, JWT secret, etc.) and is excluded from the repo via `.gitignore`.
 
+## Restarting SAM Local
+
+Required after changing `template.yaml`, `env.json`, layer dependencies (`requirements.txt`), or any handler/layer code.
+
+```bash
+# 1. Kill the running SAM process (Ctrl+C in its terminal)
+
+# 2. Rebuild (recompiles functions + layer with dependencies)
+sam build
+
+# 3. Start the local API
+sam local start-api -t .aws-sam\build\template.yaml -n env.json --warm-containers EAGER --port 3000
+```
+
+### When is a rebuild + restart needed?
+
+| Change | Rebuild + restart required |
+|--------|:---:|
+| Handler code (`app.py`) | Yes |
+| `template.yaml` (routes, env vars, policies) | Yes |
+| `env.json` (local env vars) | Yes |
+| Layer `requirements.txt` (new dependency) | Yes |
+| Layer code (`common/*.py`) | Yes |
+
+> `--warm-containers EAGER` pre-loads containers for faster responses but does **not** hot-reload code. Any code change requires a full rebuild + restart.
+
 ## Test Data
 
 | Credential | Value |
