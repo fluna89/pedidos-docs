@@ -1,5 +1,18 @@
 # Changelog — Pedidos Backend
 
+## [0.8.0] - 2026-04-13
+
+### Google OAuth — Authorization Code flow + hardening
+
+- **auth/app.py**: refactored `handle_google` from ID-token flow to **Authorization Code flow** — backend exchanges auth code at `oauth2.googleapis.com/token` with `client_secret` and `redirect_uri=postmessage`, then verifies the returned ID token cryptographically
+- **auth/app.py**: `verify_oauth2_token` called with `clock_skew_in_seconds=5` to tolerate minor clock drift between server and Google
+- **auth/app.py**: `handle_update_profile` rejects email changes (email immutable)
+- **auth/app.py**: `handle_recover` skips password-reset email for Google-only users (no password set)
+- **auth/app.py**: `_sanitize_user` returns `googleLinked` and `hasPassword` flags for frontend UX
+- **layers/common/requirements.txt**: added `requests>=2.31.0` (required by `google.auth.transport.requests`)
+- **template.yaml**: added `GOOGLE_CLIENT_SECRET` environment variable via SSM (`/pedidos/google-client-secret`)
+- **test_auth.py**: 4 new tests — email immutability, recover skip for Google-only, sanitize flags
+
 ## [0.7.0] - 2026-04-12
 
 ### Google OAuth login

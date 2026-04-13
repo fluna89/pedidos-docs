@@ -2,6 +2,15 @@
 
 Registro de funcionalidades implementadas y planificadas.
 
+## [0.28.0] - 2026-04-13
+
+### Google OAuth — Authorization Code flow + hardening
+
+- **AuthContext.jsx**: `loginWithGoogle(authCode)` sends `{ code: authCode }` to backend (auth-code flow instead of ID token)
+- **AuthContext.jsx**: defensive validation `if (!res.token || !res.user) throw new Error(...)` on all 4 auth functions (login, register, guest, Google) to prevent phantom logins
+- **LoginPage.jsx**: migrated to `useGoogleLogin({ flow: 'auth-code' })` with custom Button (replaces `GoogleLogin` rendered component)
+- **AddressesPage.jsx**: email field disabled (immutable), "Cambiar contraseña" link hidden for Google-only users (`!user?.hasPassword`)
+
 ## [0.27.0] - 2026-04-12
 
 ### Google OAuth login
